@@ -298,6 +298,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1274204123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274204125}
+  - component: {fileID: 1274204124}
+  m_Layer: 0
+  m_Name: EnemySpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1274204124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274204123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c6ded16b7c4a425bea37a64be210be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveConfigs:
+  - {fileID: 11400000, guid: 4d89d76b10de317c1abd798eb249dd87, type: 2}
+  - {fileID: 11400000, guid: f7eff45036351eca6937e41d470927fd, type: 2}
+  currentWave: {fileID: 0}
+  timeBetweenWaves: 2
+  isLooping: 1
+--- !u!4 &1274204125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274204123}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1275895816
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +379,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveConfigs:
   - {fileID: 11400000, guid: f7eff45036351eca6937e41d470927fd, type: 2}
-  currentWave: {fileID: 11400000, guid: f7eff45036351eca6937e41d470927fd, type: 2}
+  - {fileID: 11400000, guid: 4d89d76b10de317c1abd798eb249dd87, type: 2}
+  currentWave: {fileID: 0}
+  timeBetweenWaves: 2
+  isLooping: 1
 --- !u!4 &1275895818
 Transform:
   m_ObjectHideFlags: 0
@@ -339,7 +392,7 @@ Transform:
   m_GameObject: {fileID: 1275895816}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5814289, y: 1.6883011, z: -0.04187754}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -391,7 +444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 974790758271117679, guid: 98819bf40a92a1fc3b622923ec15125e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.271
       objectReference: {fileID: 0}
     - target: {fileID: 974790758271117679, guid: 98819bf40a92a1fc3b622923ec15125e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -442,3 +495,4 @@ SceneRoots:
   - {fileID: 4740796761249895845}
   - {fileID: 1946040605}
   - {fileID: 1275895818}
+  - {fileID: 1274204125}

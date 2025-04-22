@@ -9,6 +9,10 @@ public class WaveConfigSO : ScriptableObject
     [SerializeField] Transform pathPrefab; //Prefab of the path to follow
     [SerializeField] float moveSpeed = 5f; //Speed of the enemy
 
+    //randomSpawn
+    [SerializeField] float timeBetweenSpawns = 1; //Time between each enemy spawn
+    [SerializeField] float spawnTimeVariance = 0f; //Variance in the spawn time
+    [SerializeField] float minimumSpawnTime = 0.2f; //Minimum spawn time
     public Transform GetStartingWaypoint()
     {
         return pathPrefab.GetChild(0); //return the first child of the path prefab as the starting waypoint
@@ -37,6 +41,15 @@ public class WaveConfigSO : ScriptableObject
     public int GetEnemyCount()
     {
         return enemyPrefab.Count; //return the number of enemies in the wave
+    }
+
+    public float GetRandomSpawnTime()
+    {
+        float spawnTime = Random.Range(
+            timeBetweenSpawns - spawnTimeVariance, //Lower Boundary
+            timeBetweenSpawns + spawnTimeVariance //Upper Boundary
+        );//*Calculate a random spawn time based on the variance
+        return Mathf.Clamp(spawnTime, minimumSpawnTime, float.MaxValue);
     }
 
     // Start is called before the first frame update

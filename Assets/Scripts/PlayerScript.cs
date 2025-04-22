@@ -21,6 +21,13 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] float paddingDown;
 
+    Shooter shooter;
+
+    void Awake()
+    {
+        shooter = GetComponent<Shooter>(); //Get the Shooter component 
+    }
+
     void Start()
     {
         InitBounds();
@@ -53,6 +60,15 @@ public class PlayerScript : MonoBehaviour
         Camera mainCamera = Camera.main;
         minBounds = mainCamera.ViewportToWorldPoint(new Vector2(0, 0)); //bottom left corner of the camera
         maxBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1)); //top right corner of the camera
+    }
+
+    void OnFire(InputValue value)
+    {
+        if (shooter != null)
+        {
+            shooter.isFiring = value.isPressed; //Set the isFiring property of the Shooter component based on the input value
+            Debug.Log("Fire: " + value.isPressed);
+        }
     }
 
 }
