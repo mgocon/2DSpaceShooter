@@ -16,9 +16,13 @@ public class Shooter : MonoBehaviour
     [SerializeField] float minimumFiringRate = 0.1f;
     [SerializeField] float baseFiringRate = 0.5f; //Base firing rate
 
-
+    AudioPlayer audioPlayer;
     public bool isFiring;
 
+    void Awake()
+    {
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +78,7 @@ public class Shooter : MonoBehaviour
                 minimumFiringRate,
                 float.MaxValue
             );
+            audioPlayer.PlayShootingClip(); //Play the shooting sound
             yield return new WaitForSeconds(baseFiringRate); //Wait for the fire rate before firing again
         }
     }
